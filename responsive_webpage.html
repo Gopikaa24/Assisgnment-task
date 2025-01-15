@@ -1,0 +1,167 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: rgba(255, 255, 255, 0.03);
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 60px; 
+            flex: 1;
+        }
+
+        .left-menu {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .right-panel {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .left-menu.collapsed {
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-menu, .right-panel {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button onclick="toggleMenu()">Toggle Menu</button>
+    </nav>
+
+    <div class="container">
+        <div class="left-menu" id="leftMenu">
+            <h3>Portfolio Sections</h3>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>Welcome to My Portfolio</h1>
+                <p>Hi, I am Gopika Jhanwar , currently pursuing my B. Tech from the University of Petroleum and Energy Studies in Computer Science and Engineering with specialization in DevOps. I'm passionate and with a strong background in web development and DeVos tools .</p>
+  
+            <h2>Skills</h2>
+            <ul>
+               <li>Python</li>
+               <li>JavaScript</li>
+               <li>Docker</li>
+               <li>Jenkins</li>
+               <li>Kubernetes</li>
+               <li>Terraform</li>
+               <li>AWS</li>
+            </ul>
+  
+           <h2>Projects</h2>
+           <div>
+           <h3>Project 1: Academic Performance Analyzer</h3>
+           <p>It is a build system that allows students to input their grades and course details. Provide insights into
+            their academic performance over time, and suggest study strategies based on data analysis. It is a proper
+            DSA based project.</p>
+    
+           <h3>Project 2: Lane Detection</h3>
+           <p> • Enhancing Road Safety Through Advanced Driver Assistance System Using OpenCV
+            • By integrating cutting-edge computer vision techniques and algorithm optimization, we aim to develop a
+            driver assistance system adept at handling real-world driving conditions.
+            • The project focuses on refining both lane detection and traffic sign recognition, ensuring the delivery of
+            timely and precise information.
+            • System requirements were Anaconda, Python and OpenCV</p>
+           </div>
+       </div>
+       <div class="right-panel">
+           <h3>Contact information</h3>
+           <p>Email: gopsjhanwar2004@gmail.com</p>
+            <p>Phone: +91 73xxxxxx71</p>
+            <p>Location: Dehradun, India</p>
+       </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Gopika Jhanwar. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const leftMenu = document.getElementById('leftMenu');
+            leftMenu.classList.toggle('collapsed');
+        }
+
+        function adjustWidth() {
+            const width = window.innerWidth;
+            const body = document.body;
+
+            if (width <= 600) {
+                body.style.transform = 'scale(0.5)';
+                body.style.transformOrigin = 'top left';
+            } else if (width <= 700) {
+                body.style.transform = 'scale(0.75)';
+                body.style.transformOrigin = 'top left';
+            } else if (width <= 767) {
+                body.style.transform = 'scale(0.8)';
+                body.style.transformOrigin = 'top left';
+            } else if (width <= 1600) {
+                body.style.transform = 'scale(0.9)';
+                body.style.transformOrigin = 'top left';
+            } else {
+                body.style.transform = 'scale(1)';
+                body.style.transformOrigin = 'top left';
+            }
+        }
+
+        window.addEventListener('resize', adjustWidth);
+        window.addEventListener('load', adjustWidth);
+    </script>
+</body>
+</html>
